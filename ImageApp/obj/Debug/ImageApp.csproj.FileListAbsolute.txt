@@ -15,3 +15,4 @@ C:\UNI\VS_Projects\ImageProcess\ImageApp\obj\Debug\ImageApp.csproj.GenerateResou
 C:\UNI\VS_Projects\ImageProcess\ImageApp\obj\Debug\ImageApp.exe
 C:\UNI\VS_Projects\ImageProcess\ImageApp\obj\Debug\ImageApp.pdb
 C:\UNI\VS_Projects\ImageProcess\ImageApp\obj\Debug\ImageApp.ImageProcessApp.resources
+C:\UNI\VS_Projects\ImageProcess\ImageApp\obj\Debug\ImageApp.csprojResolveAssemblyReference.cache
