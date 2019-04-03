@@ -81,6 +81,64 @@ namespace ImageApp
             trackBarZoo();
         }
 
+        private void grayScale1Button_Click(object sender, EventArgs e)
+        {
+            grayScale1();
+        }
+
+        private void grayScale2Button_Click(object sender, EventArgs e)
+        {
+            grayScale2();
+        }
+
+        private void grayScale3Button_Click(object sender, EventArgs e)
+        {
+            grayScale3();
+        }
+
+        private void negativeButton_Click(object sender, EventArgs e)
+        {
+            negative();
+        }
+
+        private void sepiaButton_Click(object sender, EventArgs e)
+        {
+            sepia();
+        }
+
+        private void riddleButton_Click(object sender, EventArgs e)
+        {
+            riddle();
+        }
+
+        private void redButton_Click(object sender, EventArgs e)
+        {
+            redChannel();
+        }
+
+        private void greenButton_Click(object sender, EventArgs e)
+        {
+            greenChannel();
+        }
+        private void blueButton_Click(object sender, EventArgs e)
+        {
+            blueChannel();
+        }
+
+        private void colorBinaryButton_Click(object sender, EventArgs e)
+        {
+            colorBinary();
+        }
+
+        private void binaryButton_Click(object sender, EventArgs e)
+        {
+            binary();
+        }
+
+        private void gammaButton_Click(object sender, EventArgs e)
+        {
+            gamma();
+        }
 
         //====================Secondary Display Side====================
 
@@ -354,6 +412,16 @@ namespace ImageApp
 
                 rotate.Text = Convert.ToString(0);
                 zoom.Text = Convert.ToString(1);
+                gammaBox.Text = Convert.ToString(0);
+                binaryTextBox.Text = Convert.ToString(0);
+                binaryColorTextBox.Text = Convert.ToString(0);
+
+                colorOne1.Text = Convert.ToString(0);
+                colorOne2.Text = Convert.ToString(0);
+                colorOne3.Text = Convert.ToString(0);
+                colorTwo1.Text = Convert.ToString(0);
+                colorTwo2.Text = Convert.ToString(0);
+                colorTwo3.Text = Convert.ToString(0);
             }
         }
 
@@ -503,6 +571,349 @@ namespace ImageApp
                 return bitmap;
             }
             return null;
+        }
+
+        private void grayScale1()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = color.R;
+                        int g = color.G;
+                        int b = color.B;
+
+                        int avg = (r + g + b) / 3;
+
+                        img.SetPixel(i, j, Color.FromArgb(avg, avg, avg));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void grayScale2()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = Convert.ToInt16(0.299 * color.R);
+                        int g = Convert.ToInt16(0.587 * color.G);
+                        int b = Convert.ToInt16(0.114 * color.B);
+
+                        int avg = r + g + b;
+
+                        img.SetPixel(i, j, Color.FromArgb(avg, avg, avg));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void grayScale3()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = Convert.ToInt16(0.11 * color.R);
+                        int g = Convert.ToInt16(0.59 * color.G);
+                        int b = Convert.ToInt16(0.30 * color.B);
+
+                        int avg = r + g + b;
+
+                        img.SetPixel(i, j, Color.FromArgb(avg, avg, avg));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+        private void negative()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = 255 - color.R;
+                        int g = 255 - color.G;
+                        int b = 255 - color.B;
+
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void sepia()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = Convert.ToInt16(0.393 * color.R + 0.769 * color.G + 0.189 * color.B);
+                        int g = Convert.ToInt16(0.349 * color.R + 0.686 * color.G + 0.168 * color.B); ;
+                        int b = Convert.ToInt16(0.272 * color.R + 0.534 * color.G + 0.131 * color.B); ;
+
+                        if (r > 255)
+                        {
+                            r = 255;
+                        }
+                        if (g > 255)
+                        {
+                            g = 255;
+                        }
+                        if (b > 255)
+                        {
+                            b = 255;
+                        }
+
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void riddle()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = 255 - color.R;
+                        int g = 255 - color.G;
+                        int b = 255 - color.B;
+
+                        int avg = (r + g + b) / 3;
+
+                        img.SetPixel(i, j, Color.FromArgb(avg, avg, avg));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void redChannel()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = color.R;
+                        int g = 0;
+                        int b = 0;
+
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void greenChannel()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = 0;
+                        int g = color.G;
+                        int b = 0;
+
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void blueChannel()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+
+                        int r = 0;
+                        int g = 0;
+                        int b = color.B;
+
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void colorBinary()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+                        double thershold = (double)binaryColorTrackBar.Value;
+                        int r = color.R;
+                        int g = color.G;
+                        int b = color.B;
+                        int sum = r + g + b;
+
+                        if (sum > thershold)
+                        {
+                            r = Convert.ToInt16(colorOne1.Text);
+                            g = Convert.ToInt16(colorOne2.Text);
+                            b = Convert.ToInt16(colorOne3.Text);
+                        }
+                        else
+                        {
+                            r = Convert.ToInt16(colorTwo1.Text);
+                            g = Convert.ToInt16(colorTwo2.Text);
+                            b = Convert.ToInt16(colorTwo3.Text);
+                        }
+
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void binary()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+                        double thershold = (double)binaryTrackBar.Value;
+                        int r = color.R;
+                        int g = color.G;
+                        int b = color.B;
+                        int sum = r + g + b;
+
+                        if (sum > thershold)
+                        {
+                            r = 255;
+                            g = 255;
+                            b = 255;
+                        }
+                        else
+                        {
+                            r = 0;
+                            g = 0;
+                            b = 0;
+                        }
+
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void gamma()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+                        double gamma = (double)gammaTrackBar.Value * 0.01;
+                        int r = Convert.ToInt32(255 * Math.Pow(color.R / 255.0, 1 / gamma));
+                        int g = Convert.ToInt32(255 * Math.Pow(color.G / 255.0, 1 / gamma));
+                        int b = Convert.ToInt32(255 * Math.Pow(color.B / 255.0, 1 / gamma));
+
+                        if (r > 255)
+                        {
+                            r = 255;
+                        }
+                        if (g > 255)
+                        {
+                            g = 255;
+                        }
+                        if (b > 255)
+                        {
+                            b = 255;
+                        }
+
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void binaryTrackBar_Scroll(object sender, EventArgs e)
+        {
+            double thershold = (double)binaryTrackBar.Value;
+            binaryTextBox.Text = thershold.ToString();
+        }
+
+        private void gammaTrackBar_Scroll(object sender, EventArgs e)
+        {
+            double gamma = (double)gammaTrackBar.Value * 0.01;
+            gammaBox.Text = gamma.ToString();
+        }
+
+        private void binaryColorTrackBar_Scroll(object sender, EventArgs e)
+        {
+            double thershold = (double)binaryColorTrackBar.Value;
+            binaryColorTextBox.Text = thershold.ToString();
         }
 
     }
