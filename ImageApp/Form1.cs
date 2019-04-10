@@ -20,53 +20,138 @@ namespace ImageApp
         
         public ImageProcessApp() { InitializeComponent(); }
 
-
-        //====================Primary Display Side====================
-
         private Image image;
         private String path;
 
-        private void openButton_Click(object sender, EventArgs e)
+        private Image image2;
+        private String path2;
+
+        //====================I/O Menu====================
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             open(pictureBox, image, path, detailsListBox, "LEFT");
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            save(pictureBox);
-        }
-
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            clear(pictureBox, "LEFT");
-        }
-
-        private void saveAsButton_Click(object sender, EventArgs e)
-        {
-            saveAs(pictureBox);
-        }
-
-        private void openAsButton_Click(object sender, EventArgs e)
+        private void openAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openAs(pictureBox, image, path, detailsListBox, "LEFT");
         }
 
-        private void openUrlButton_Click(object sender, EventArgs e)
+        private void openURLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openUrl(pictureBox, urlTextBox, image, path, detailsListBox, "LEFT");
         }
 
-        private void cropButton_Click(object sender, EventArgs e)
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            save(pictureBox);
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveAs(pictureBox);
+        }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clear(pictureBox, "LEFT");
+        }
+
+        //====================Transform Menu====================
+
+        private void cropToolStripMenuItem_Click(object sender, EventArgs e)
         {
             crop(pictureBox, image, path, cropWidthTextBox, cropHeightTextBox, cropPosX, cropPosY, "LEFT");
         }
 
-        private void flipX_Click(object sender, EventArgs e)
+        //====================Color Menu====================
+
+        private void grayScale1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grayScale1();
+        }
+
+        private void grayScale2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grayScale2();
+        }
+
+        private void grayScale3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            grayScale3();
+        }
+
+        private void negativeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            negative();
+        }
+
+        private void sepiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sepia();
+        }
+
+        private void grayInvertedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            riddle();
+        }
+
+        private void redChannelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            redChannel();
+        }
+
+        private void greenChannelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            greenChannel();
+        }
+
+        private void blueChannelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            blueChannel();
+        }
+
+        //====================I/O 2 Menu====================
+
+        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            open(pictureBox2, image2, path2, detailsListBox2, "RIGHT");
+        }
+
+        private void openAsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            openAs(pictureBox2, image2, path2, detailsListBox2, "RIGHT");
+        }
+
+        private void openURLToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            openUrl(pictureBox2, urlTextBox2, image2, path2, detailsListBox2, "RIGHT");
+        }
+
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            save(pictureBox2);
+        }
+
+        private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            saveAs(pictureBox2);
+        }
+
+        private void clearToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            clear(pictureBox2, "RIGHT");
+        }
+
+        //====================Bottom Features====================
+
+        private void flipXButton_Click(object sender, EventArgs e)
         {
             flipXLog();
         }
 
-        private void flipY_Click(object sender, EventArgs e)
+        private void flipYButton_Click(object sender, EventArgs e)
         {
             flipYLog();
         }
@@ -79,50 +164,6 @@ namespace ImageApp
         private void trackBarZoom_Scroll(object sender, EventArgs e)
         {
             trackBarZoo();
-        }
-
-        private void grayScale1Button_Click(object sender, EventArgs e)
-        {
-            grayScale1();
-        }
-
-        private void grayScale2Button_Click(object sender, EventArgs e)
-        {
-            grayScale2();
-        }
-
-        private void grayScale3Button_Click(object sender, EventArgs e)
-        {
-            grayScale3();
-        }
-
-        private void negativeButton_Click(object sender, EventArgs e)
-        {
-            negative();
-        }
-
-        private void sepiaButton_Click(object sender, EventArgs e)
-        {
-            sepia();
-        }
-
-        private void riddleButton_Click(object sender, EventArgs e)
-        {
-            riddle();
-        }
-
-        private void redButton_Click(object sender, EventArgs e)
-        {
-            redChannel();
-        }
-
-        private void greenButton_Click(object sender, EventArgs e)
-        {
-            greenChannel();
-        }
-        private void blueButton_Click(object sender, EventArgs e)
-        {
-            blueChannel();
         }
 
         private void colorBinaryButton_Click(object sender, EventArgs e)
@@ -140,48 +181,17 @@ namespace ImageApp
             gamma();
         }
 
-        //====================Secondary Display Side====================
-
-        private Image image2;
-        private String path2;
-
-        private void openButton2_Click(object sender, EventArgs e)
+        private void contrastButton_Click(object sender, EventArgs e)
         {
-            open(pictureBox2, image2, path2, detailsListBox2, "RIGHT");
+            contrast();
         }
 
-        private void saveButton2_Click(object sender, EventArgs e)
+        private void brightnessButton_Click(object sender, EventArgs e)
         {
-            save(pictureBox2);
+            brightness();
         }
 
-        private void clearButton2_Click(object sender, EventArgs e)
-        {
-            clear(pictureBox2, "RIGHT");
-        }
-
-        private void saveAsButton2_Click(object sender, EventArgs e)
-        {
-            saveAs(pictureBox2);
-        }
-
-        private void openAsButton2_Click(object sender, EventArgs e)
-        {
-            openAs(pictureBox2, image2, path2, detailsListBox2, "RIGHT");
-        }
-
-        private void openUrlButton2_Click(object sender, EventArgs e)
-        {
-            openUrl(pictureBox2, urlTextBox2, image2, path2, detailsListBox2, "RIGHT");
-        }
-
-        private void cropButton2_Click(object sender, EventArgs e)
-        {
-            crop(pictureBox2, image2, path2, cropWidthTextBox2, cropHeightTextBox2, cropPosX2, cropPosY2, "RIGHT");
-        }
-
-
-        //====================Logic Side====================
+        //====================Logic====================
 
         private void open(PictureBox picBox, Image image, String path, ListBox listBox, String side)
         {
@@ -425,6 +435,32 @@ namespace ImageApp
             }
         }
 
+        private void populateFields(PictureBox picBox, TextBox width, TextBox height, TextBox vRes, TextBox hRes, TextBox colors, TextBox rotate, TextBox zoom, string path)
+        {
+            if (picBox != null && picBox.Image != null)
+            {
+
+                width.Text = Convert.ToString(picBox.Image.Width);
+                height.Text = Convert.ToString(picBox.Image.Height);
+                vRes.Text = Convert.ToString(picBox.Image.VerticalResolution);
+                hRes.Text = Convert.ToString(picBox.Image.HorizontalResolution);
+                colors.Text = Convert.ToString(getColors(path));
+
+                rotate.Text = Convert.ToString(0);
+                zoom.Text = Convert.ToString(1);
+                gammaBox.Text = Convert.ToString(0);
+                binaryTextBox.Text = Convert.ToString(0);
+                binaryColorTextBox.Text = Convert.ToString(0);
+
+                colorOne1.Text = Convert.ToString(0);
+                colorOne2.Text = Convert.ToString(0);
+                colorOne3.Text = Convert.ToString(0);
+                colorTwo1.Text = Convert.ToString(0);
+                colorTwo2.Text = Convert.ToString(0);
+                colorTwo3.Text = Convert.ToString(0);
+            }
+        }
+
         private void details(string fileName, ListBox listbox)
         {
             FileInfo fileInfo = new FileInfo(fileName);
@@ -452,8 +488,7 @@ namespace ImageApp
             else if (side.Equals("RIGHT"))
             {
                 clearFields(detailsListBox2, widthTextBox2, heightTextBox2, vResTextBox2, hResTextBox2, colorsTextBox2);
-                populateFields(pictureBox2, cropWidthTextBox2, cropHeightTextBox2, cropPosX2, cropPosY2, widthTextBox2,
-                    heightTextBox2, vResTextBox2, hResTextBox2, colorsTextBox2, rotateBox, zoomBox, path);
+                populateFields(pictureBox2, widthTextBox2, heightTextBox2, vResTextBox2, hResTextBox2, colorsTextBox2, rotateBox, zoomBox, path);
             }
         }
 
@@ -644,6 +679,7 @@ namespace ImageApp
                 }
             }
         }
+
         private void negative()
         {
             if (pictureBox.Image != null)
@@ -681,19 +717,7 @@ namespace ImageApp
                         int g = Convert.ToInt16(0.349 * color.R + 0.686 * color.G + 0.168 * color.B); ;
                         int b = Convert.ToInt16(0.272 * color.R + 0.534 * color.G + 0.131 * color.B); ;
 
-                        if (r > 255)
-                        {
-                            r = 255;
-                        }
-                        if (g > 255)
-                        {
-                            g = 255;
-                        }
-                        if (b > 255)
-                        {
-                            b = 255;
-                        }
-
+                        restrictColors(r, g, b);
                         img.SetPixel(i, j, Color.FromArgb(r, g, b));
                         pictureBox2.Image = img;
                     }
@@ -878,19 +902,7 @@ namespace ImageApp
                         int g = Convert.ToInt32(255 * Math.Pow(color.G / 255.0, 1 / gamma));
                         int b = Convert.ToInt32(255 * Math.Pow(color.B / 255.0, 1 / gamma));
 
-                        if (r > 255)
-                        {
-                            r = 255;
-                        }
-                        if (g > 255)
-                        {
-                            g = 255;
-                        }
-                        if (b > 255)
-                        {
-                            b = 255;
-                        }
-
+                        restrictColors(r, g, b);
                         img.SetPixel(i, j, Color.FromArgb(r, g, b));
                         pictureBox2.Image = img;
                     }
@@ -914,6 +926,92 @@ namespace ImageApp
         {
             double thershold = (double)binaryColorTrackBar.Value;
             binaryColorTextBox.Text = thershold.ToString();
+        }
+
+        private void contrast()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+                        double contrast = Math.Pow(((100.0 + (double)contrastTrackBar.Value) / 100), 2);
+                        int r = Convert.ToInt32(((((color.R / 255.0) - 0.5) * contrast) + 0.5) * 255.0);
+                        int g = Convert.ToInt32(((((color.G / 255.0) - 0.5) * contrast) + 0.5) * 255.0);
+                        int b = Convert.ToInt32(((((color.B / 255.0) - 0.5) * contrast) + 0.5) * 255.0);
+
+                        restrictColors(r, g, b);
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void contrastTrackBar_Scroll(object sender, EventArgs e)
+        {
+            double contrast = Math.Pow(((100.0 + (double)contrastTrackBar.Value) / 100), 2);
+            contrastTextBox.Text = contrast.ToString();
+        }
+
+        private void brightness()
+        {
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                for (int i = 0; i < img.Width; i++)
+                {
+                    for (int j = 0; j < img.Height; j++)
+                    {
+                        Color color = img.GetPixel(i, j);
+                        double brightness = (double)brightnessTrackBar.Value;
+                        int r = Convert.ToInt32(Math.Round(color.R * brightness / 100.0));
+                        int g = Convert.ToInt32(Math.Round(color.G * brightness / 100.0));
+                        int b = Convert.ToInt32(Math.Round(color.B * brightness / 100.0));
+
+                        restrictColors(r, g, b);
+                        img.SetPixel(i, j, Color.FromArgb(r, g, b));
+                        pictureBox2.Image = img;
+                    }
+                }
+            }
+        }
+
+        private void brightnessTrackBar_Scroll(object sender, EventArgs e)
+        {
+            double brightness = (double)brightnessTrackBar.Value;
+            brightnessTextbox.Text = brightness.ToString();
+        }
+
+        private void restrictColors(int r, int g, int b)
+        {
+            if (r > 255)
+            {
+                r = 255;
+            }
+            if (g > 255)
+            {
+                g = 255;
+            }
+            if (b > 255)
+            {
+                b = 255;
+            }
+            if (r < 0)
+            {
+                r = 0;
+            }
+            if (g < 0)
+            {
+                g = 0;
+            }
+            if (b < 0)
+            {
+                b = 0;
+            }
         }
 
     }
