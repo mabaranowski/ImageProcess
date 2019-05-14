@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 
 //Created by Mateusz Baranowski [AIR]
 
@@ -17,7 +19,7 @@ namespace ImageApp
 {
     public partial class ImageProcessApp : Form
     {
-        
+
         public ImageProcessApp() { InitializeComponent(); }
 
         private Image image;
@@ -110,6 +112,308 @@ namespace ImageApp
         private void blueChannelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             blueChannel();
+        }
+
+        //====================Filter Menu====================
+
+        private void x3GrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  0.0, 0.2, 0.0, },  
+                  {  0.2, 0.2, 0.2, },  
+                  {  0.0, 0.2, 0.2, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix3x3);
+            }
+        }
+
+        private void x3ColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  0.0, 0.2, 0.0, },  
+                  {  0.2, 0.2, 0.2, },  
+                  {  0.0, 0.2, 0.2, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix3x3);
+            }
+        }
+
+        private void x5GrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  0.0, 0.0, 1.0, 0.0, 0.0 },  
+                  {  0.0, 1.0, 1.0, 1.0, 0.0 },  
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 },
+                  {  0.0, 1.0, 1.0, 1.0, 0.0 }, 
+                  {  0.0, 0.0, 1.0, 0.0, 0.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix5x5);
+            }
+        }
+
+        private void x5ColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  0.0, 0.0, 1.0, 0.0, 0.0 },  
+                  {  0.0, 1.0, 1.0, 1.0, 0.0 },  
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 },
+                  {  0.0, 1.0, 1.0, 1.0, 0.0 }, 
+                  {  0.0, 0.0, 1.0, 0.0, 0.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix5x5);
+            }
+        }
+
+        private void x3ColorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  1.0, 1.0, 1.0, },  
+                  {  1.0, 1.0, 1.0, },  
+                  {  1.0, 1.0, 1.0, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix3x3);
+            }
+        }
+
+        private void x3GrayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  1.0, 1.0, 1.0, },  
+                  {  1.0, 1.0, 1.0, },  
+                  {  1.0, 1.0, 1.0, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix3x3);
+            }
+        }
+
+        private void x5GrayToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  1.0, 1.0, 1.0, 1.0, 1.0 },  
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 },  
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 },
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 }, 
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix5x5);
+            }
+        }
+
+        private void x5ColorToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  1.0, 1.0, 1.0, 1.0, 1.0 },  
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 },  
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 },
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 }, 
+                  {  1.0, 1.0, 1.0, 1.0, 1.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix5x5);
+            }
+        }
+
+        private void x3GrayToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  0.0, -1.0, 0.0, },  
+                  {  -1.0, 5.0, -1.0, },  
+                  {  0.0, -1.0, 0.0, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix3x3);
+            }
+        }
+
+        private void x3ColorToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  0.0, -1.0, 0.0, },  
+                  {  -1.0, 5.0, -1.0, },  
+                  {  0.0, -1.0, 0.0, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix3x3);
+            }
+        }
+
+        private void x5GrayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  -1.0, -1.0, -1.0, -1.0, -1.0 },  
+                  {  -1.0, 2.0, 2.0, 2.0, -1.0 },  
+                  {  -1.0, 2.0, 8.0, 2.0, -1.0 },
+                  {  -1.0, 2.0, 2.0, 2.0, -1.0 }, 
+                  {  -1.0, -1.0, -1.0, -1.0, -1.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix5x5);
+            }
+        }
+
+        private void x5ColorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  -1.0, -1.0, -1.0, -1.0, -1.0 },  
+                  {  -1.0, 2.0, 2.0, 2.0, -1.0 },  
+                  {  -1.0, 2.0, 8.0, 2.0, -1.0 },
+                  {  -1.0, 2.0, 2.0, 2.0, -1.0 }, 
+                  {  -1.0, -1.0, -1.0, -1.0, -1.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix5x5);
+            }
+        }
+
+        private void x3GrayToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  -1.0, -1.0, -1.0, },  
+                  {  -1.0, 9.0, -1.0, },  
+                  {  -1.0, -1.0, -1.0, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix3x3);
+            }
+        }
+
+        private void x3ColorToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  -1.0, -1.0, -1.0, },  
+                  {  -1.0, 9.0, -1.0, },  
+                  {  -1.0, -1.0, -1.0, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix3x3);
+            }
+        }
+
+        private void x5GrayToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  -1.0, 0.0, 0.0, 0.0, 0.0 },  
+                  {  0.0, -2.0, 0.0, 0.0, 0.0 },  
+                  {  0.0, 0.0, 6.0, 2.0, 0.0 },
+                  {  0.0, 0.0, 0.0, -2.0, 0.0 }, 
+                  {  0.0, 0.0, 0.0, 0.0, -1.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix5x5);
+            }
+        }
+
+        private void x5ColorToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  -1.0, 0.0, 0.0, 0.0, 0.0 },  
+                  {  0.0, -2.0, 0.0, 0.0, 0.0 },  
+                  {  0.0, 0.0, 6.0, 2.0, 0.0 },
+                  {  0.0, 0.0, 0.0, -2.0, 0.0 }, 
+                  {  0.0, 0.0, 0.0, 0.0, -1.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix5x5);
+            }
+        }
+
+        private void x3GrayToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  3.0, 0.0, 0.0, },  
+                  {  0.0, -2.0, 0.0, },  
+                  {  0.0, 0.0, -2.0, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix3x3);
+            }
+        }
+
+        private void x3ColorToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix3x3 = new double[,]   
+                { {  3.0, 0.0, 0.0, },  
+                  {  0.0, -2.0, 0.0, },  
+                  {  0.0, 0.0, -2.0, }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix3x3);
+            }
+        }
+
+        private void x5GrayToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  -1.0, -1.0, -1.0, -1.0, 0.0 },  
+                  {  -1.0, -1.0, -1.0, 0.0, 1.0 },  
+                  {  -1.0, -1.0, 0.0, 1.0, 1.0 },
+                  {  -1.0, 0.0, 1.0, 1.0, 1.0 }, 
+                  {  0.0, 1.0, 1.0, 1.0, 1.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterGray(img, Matrix5x5);
+            }
+        }
+
+        private void x5ColorToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            double[,] Matrix5x5 = new double[,]
+                { {  -1.0, -1.0, -1.0, -1.0, 0.0 },  
+                  {  -1.0, -1.0, -1.0, 0.0, 1.0 },  
+                  {  -1.0, -1.0, 0.0, 1.0, 1.0 },
+                  {  -1.0, 0.0, 1.0, 1.0, 1.0 }, 
+                  {  0.0, 1.0, 1.0, 1.0, 1.0 }, };
+
+            if (pictureBox.Image != null)
+            {
+                Bitmap img = new Bitmap(pictureBox.Image);
+                pictureBox2.Image = colvFilterColor(img, Matrix5x5);
+            }
         }
 
         //====================I/O 2 Menu====================
@@ -312,7 +616,7 @@ namespace ImageApp
 
         }
 
-        private void openUrl(PictureBox picBox, TextBox urlTextBox, Image image, String path, ListBox listBox, String side) 
+        private void openUrl(PictureBox picBox, TextBox urlTextBox, Image image, String path, ListBox listBox, String side)
         {
             if (!string.IsNullOrWhiteSpace(urlTextBox.Text))
             {
@@ -356,8 +660,8 @@ namespace ImageApp
                     picBox.SizeMode = PictureBoxSizeMode.Normal;
 
                     clearPopulate(side);
-                   
-                    if(picBox.Image != null) 
+
+                    if (picBox.Image != null)
                     {
                         if (side.Equals("LEFT"))
                         {
@@ -404,7 +708,7 @@ namespace ImageApp
             listBox.Items.Clear();
         }
 
-        private void populateFields(PictureBox picBox, TextBox cropWidth, TextBox cropHeight, TextBox cropX, TextBox cropY, 
+        private void populateFields(PictureBox picBox, TextBox cropWidth, TextBox cropHeight, TextBox cropX, TextBox cropY,
             TextBox width, TextBox height, TextBox vRes, TextBox hRes, TextBox colors, TextBox rotate, TextBox zoom, string path)
         {
             if (picBox != null && picBox.Image != null)
@@ -574,7 +878,7 @@ namespace ImageApp
                 {
                     graphics.DrawImage(image, new Point(0, 0));
                 }
-                catch 
+                catch
                 {
                     System.Diagnostics.Debug.WriteLine("Out of memory");
                 }
@@ -1012,6 +1316,86 @@ namespace ImageApp
             {
                 b = 0;
             }
+        }
+
+        private Bitmap colvFilterColor(Bitmap img, double[,] matrix)
+        {
+            Bitmap cloneImg = new Bitmap(img);
+            Bitmap outputImg = new Bitmap(cloneImg);
+
+            double rgb;
+            double r;
+            double g;
+            double bc;
+            double factor;
+
+            for (int i = 1; i < cloneImg.Width - 1; i++)
+            {
+                for (int j = 1; j < cloneImg.Height - 1; j++)
+                {
+                    r = 0;
+                    g = 0;
+                    bc = 0;
+                    factor = 0;
+
+                    for (int a = -1; a < 2; a++)
+                    {
+                        for (int b = -1; b < 2; b++)
+                        {
+                            r += (cloneImg.GetPixel(i + a, j + b).R * matrix[a + 1, b + 1]);
+                            g += (cloneImg.GetPixel(i + a, j + b).G * matrix[a + 1, b + 1]);
+                            bc += (cloneImg.GetPixel(i + a, j + b).B * matrix[a + 1, b + 1]);
+
+                            factor += matrix[a + 1, b + 1];
+                        }
+                    }
+
+                    r = Math.Min(Math.Max((r / factor), 0), 255);
+                    g = Math.Min(Math.Max((g / factor), 0), 255);
+                    bc = Math.Min(Math.Max((bc / factor), 0), 255);
+
+                    outputImg.SetPixel(i, j, Color.FromArgb((int)r, (int)g, (int)bc));
+                }
+            }
+
+            return outputImg;
+        }
+
+        private Bitmap colvFilterGray(Bitmap img, double[,] matrix)
+        {
+            Bitmap cloneImg = new Bitmap(img);
+            Bitmap outputImg = new Bitmap(cloneImg);
+
+            double rgb;
+            double factor;
+
+            for (int i = 1; i < cloneImg.Width - 1; i++)
+            {
+                for (int j = 1; j < cloneImg.Height - 1; j++)
+                {
+                    rgb = 0;
+                    factor = 0;
+
+                    for (int a = -1; a < 2; a++)
+                    {
+                        for (int b = -1; b < 2; b++)
+                        {
+                            rgb += (cloneImg.GetPixel(i + a, j + b).R * matrix[a + 1, b + 1] +
+                                cloneImg.GetPixel(i + a, j + b).G * matrix[a + 1, b + 1] +
+                                cloneImg.GetPixel(i + a, j + b).B * matrix[a + 1, b + 1]);
+
+                            factor += matrix[a + 1, b + 1];
+                        }
+                    }
+
+                    rgb = Math.Min(Math.Max((rgb / (factor * 3)), 0), 255);
+                    int result = Convert.ToInt32(rgb);
+
+                    outputImg.SetPixel(i, j, Color.FromArgb(result, result, result));
+                }
+            }
+
+            return outputImg;
         }
 
     }
