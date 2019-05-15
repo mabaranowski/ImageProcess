@@ -499,7 +499,7 @@ namespace ImageApp
 
         private void open(PictureBox picBox, Image image, String path, ListBox listBox, String side)
         {
-            path = @"c:\UNI\VS_Projects\Resources\Juno.jpg";
+            path = @"c:\UNI\VS_Projects\Resources\pikapika.jpg";
             image = Image.FromFile(path);
 
             picBox.Image = image;
@@ -1398,5 +1398,93 @@ namespace ImageApp
             return outputImg;
         }
 
+        //====================Project====================
+
+        private string[] chars = { "#", "#", "@", "%", "=", "+", "*", ":", "-", ".", "&nbsp;" };
+        private string content;
+
+        private void convertToTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            asciiArt();
+        }
+
+        private void asciiButton_Click(object sender, EventArgs e)
+        {
+            asciiArt();
+        }
+
+        private void asciiArt()
+        {
+                try
+                {
+                    Bitmap image = new Bitmap(this.image);
+                    int size = Convert.ToInt32(asciiSize.Text);
+
+                    image = resizeImage(image, size);
+
+                    content = convertToAscii(image);
+                    content = content.Replace("&nbsp;", " ").Replace("<BR>", "\n");
+
+                    asciTextBox.Visible = true;
+                    asciTextBox.WordWrap = false;
+                    asciTextBox.SelectionAlignment = HorizontalAlignment.Center;
+
+                    asciTextBox.Text = content;
+                }
+                catch
+                {
+                    System.Diagnostics.Debug.WriteLine("Error converting image");
+                }
+        }
+
+        private string convertToAscii(Bitmap image)
+        {
+            Boolean toggle = false;
+            StringBuilder sb = new StringBuilder();
+
+            for (int h = 0; h < image.Height; h++)
+            {
+                for (int w = 0; w < image.Width; w++)
+                {
+                    Color pixelColor = image.GetPixel(w, h);
+                    int red = (pixelColor.R + pixelColor.G + pixelColor.B) / 3;
+                    int green = (pixelColor.R + pixelColor.G + pixelColor.B) / 3;
+                    int blue = (pixelColor.R + pixelColor.G + pixelColor.B) / 3;
+                    Color grayColor = Color.FromArgb(red, green, blue);
+
+                    if (!toggle)
+                    {
+                        int index = (grayColor.R * 10) / 255;
+                        sb.Append(chars[index]);
+                    }
+                }
+                if (!toggle)
+                {
+                    sb.Append("<BR>");
+                    toggle = true;
+                }
+                else
+                {
+                    toggle = false;
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        private Bitmap resizeImage(Bitmap inputBitmap, int asciiWidth)
+        {
+            int asciiHeight = (int) Math.Ceiling((double) inputBitmap.Height * asciiWidth / inputBitmap.Width);
+
+            Bitmap result = new Bitmap(asciiWidth, asciiHeight);
+            Graphics g = Graphics.FromImage((Image)result);
+
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            g.DrawImage(inputBitmap, 0, 0, asciiWidth, asciiHeight);
+            g.Dispose();
+
+            return result;
+        }
+        
     }
 }

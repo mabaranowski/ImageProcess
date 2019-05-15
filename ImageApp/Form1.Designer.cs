@@ -128,6 +128,18 @@
             this.x3ColorToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.x5GrayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.x5ColorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.edgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x3GrayToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.x3ColorToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.x5GrayToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.x5ColorToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.embossToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x3GrayToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.x3ColorToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.x5GrayToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.x5ColorToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.textArtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.iO2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,16 +160,11 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.edgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.x3GrayToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.x3ColorToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.x5GrayToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.x5ColorToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.embossToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.x3GrayToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.x3ColorToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.x5GrayToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.x5ColorToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.asciTextBox = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.asciiSize = new System.Windows.Forms.TextBox();
+            this.asciiButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarX)).BeginInit();
@@ -704,6 +711,7 @@
             this.transformToolStripMenuItem,
             this.colorToolStripMenuItem,
             this.filtersToolStripMenuItem,
+            this.textArtToolStripMenuItem,
             this.toolStripMenuItem1,
             this.iO2ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -881,7 +889,7 @@
             this.x5GrayToolStripMenuItem,
             this.x5ColorToolStripMenuItem});
             this.smoothToolStripMenuItem.Name = "smoothToolStripMenuItem";
-            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.smoothToolStripMenuItem.Text = "Blur";
             // 
             // x3GrayToolStripMenuItem
@@ -920,7 +928,7 @@
             this.x5GrayToolStripMenuItem2,
             this.x5ColorToolStripMenuItem2});
             this.softToolStripMenuItem.Name = "softToolStripMenuItem";
-            this.softToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.softToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.softToolStripMenuItem.Text = "Soft";
             // 
             // x3GrayToolStripMenuItem1
@@ -959,41 +967,134 @@
             this.x5GrayToolStripMenuItem1,
             this.x5ColorToolStripMenuItem1});
             this.sharpToolStripMenuItem.Name = "sharpToolStripMenuItem";
-            this.sharpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sharpToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.sharpToolStripMenuItem.Text = "Sharp";
             // 
             // x3GrayToolStripMenuItem2
             // 
             this.x3GrayToolStripMenuItem2.Name = "x3GrayToolStripMenuItem2";
-            this.x3GrayToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.x3GrayToolStripMenuItem2.Size = new System.Drawing.Size(123, 22);
             this.x3GrayToolStripMenuItem2.Text = "3x3 Gray";
             this.x3GrayToolStripMenuItem2.Click += new System.EventHandler(this.x3GrayToolStripMenuItem2_Click);
             // 
             // x3ColorToolStripMenuItem2
             // 
             this.x3ColorToolStripMenuItem2.Name = "x3ColorToolStripMenuItem2";
-            this.x3ColorToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.x3ColorToolStripMenuItem2.Size = new System.Drawing.Size(123, 22);
             this.x3ColorToolStripMenuItem2.Text = "3x3 Color";
             this.x3ColorToolStripMenuItem2.Click += new System.EventHandler(this.x3ColorToolStripMenuItem2_Click);
             // 
             // x5GrayToolStripMenuItem1
             // 
             this.x5GrayToolStripMenuItem1.Name = "x5GrayToolStripMenuItem1";
-            this.x5GrayToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.x5GrayToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.x5GrayToolStripMenuItem1.Text = "5x5 Gray";
             this.x5GrayToolStripMenuItem1.Click += new System.EventHandler(this.x5GrayToolStripMenuItem1_Click);
             // 
             // x5ColorToolStripMenuItem1
             // 
             this.x5ColorToolStripMenuItem1.Name = "x5ColorToolStripMenuItem1";
-            this.x5ColorToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.x5ColorToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.x5ColorToolStripMenuItem1.Text = "5x5 Color";
             this.x5ColorToolStripMenuItem1.Click += new System.EventHandler(this.x5ColorToolStripMenuItem1_Click);
+            // 
+            // edgeToolStripMenuItem
+            // 
+            this.edgeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.x3GrayToolStripMenuItem3,
+            this.x3ColorToolStripMenuItem3,
+            this.x5GrayToolStripMenuItem3,
+            this.x5ColorToolStripMenuItem3});
+            this.edgeToolStripMenuItem.Name = "edgeToolStripMenuItem";
+            this.edgeToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.edgeToolStripMenuItem.Text = "Edge";
+            // 
+            // x3GrayToolStripMenuItem3
+            // 
+            this.x3GrayToolStripMenuItem3.Name = "x3GrayToolStripMenuItem3";
+            this.x3GrayToolStripMenuItem3.Size = new System.Drawing.Size(123, 22);
+            this.x3GrayToolStripMenuItem3.Text = "3x3 Gray";
+            this.x3GrayToolStripMenuItem3.Click += new System.EventHandler(this.x3GrayToolStripMenuItem3_Click);
+            // 
+            // x3ColorToolStripMenuItem3
+            // 
+            this.x3ColorToolStripMenuItem3.Name = "x3ColorToolStripMenuItem3";
+            this.x3ColorToolStripMenuItem3.Size = new System.Drawing.Size(123, 22);
+            this.x3ColorToolStripMenuItem3.Text = "3x3 Color";
+            this.x3ColorToolStripMenuItem3.Click += new System.EventHandler(this.x3ColorToolStripMenuItem3_Click);
+            // 
+            // x5GrayToolStripMenuItem3
+            // 
+            this.x5GrayToolStripMenuItem3.Name = "x5GrayToolStripMenuItem3";
+            this.x5GrayToolStripMenuItem3.Size = new System.Drawing.Size(123, 22);
+            this.x5GrayToolStripMenuItem3.Text = "5x5 Gray";
+            this.x5GrayToolStripMenuItem3.Click += new System.EventHandler(this.x5GrayToolStripMenuItem3_Click);
+            // 
+            // x5ColorToolStripMenuItem3
+            // 
+            this.x5ColorToolStripMenuItem3.Name = "x5ColorToolStripMenuItem3";
+            this.x5ColorToolStripMenuItem3.Size = new System.Drawing.Size(123, 22);
+            this.x5ColorToolStripMenuItem3.Text = "5x5 Color";
+            this.x5ColorToolStripMenuItem3.Click += new System.EventHandler(this.x5ColorToolStripMenuItem3_Click);
+            // 
+            // embossToolStripMenuItem
+            // 
+            this.embossToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.x3GrayToolStripMenuItem4,
+            this.x3ColorToolStripMenuItem4,
+            this.x5GrayToolStripMenuItem4,
+            this.x5ColorToolStripMenuItem4});
+            this.embossToolStripMenuItem.Name = "embossToolStripMenuItem";
+            this.embossToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.embossToolStripMenuItem.Text = "Emboss";
+            // 
+            // x3GrayToolStripMenuItem4
+            // 
+            this.x3GrayToolStripMenuItem4.Name = "x3GrayToolStripMenuItem4";
+            this.x3GrayToolStripMenuItem4.Size = new System.Drawing.Size(123, 22);
+            this.x3GrayToolStripMenuItem4.Text = "3x3 Gray";
+            this.x3GrayToolStripMenuItem4.Click += new System.EventHandler(this.x3GrayToolStripMenuItem4_Click);
+            // 
+            // x3ColorToolStripMenuItem4
+            // 
+            this.x3ColorToolStripMenuItem4.Name = "x3ColorToolStripMenuItem4";
+            this.x3ColorToolStripMenuItem4.Size = new System.Drawing.Size(123, 22);
+            this.x3ColorToolStripMenuItem4.Text = "3x3 Color";
+            this.x3ColorToolStripMenuItem4.Click += new System.EventHandler(this.x3ColorToolStripMenuItem4_Click);
+            // 
+            // x5GrayToolStripMenuItem4
+            // 
+            this.x5GrayToolStripMenuItem4.Name = "x5GrayToolStripMenuItem4";
+            this.x5GrayToolStripMenuItem4.Size = new System.Drawing.Size(123, 22);
+            this.x5GrayToolStripMenuItem4.Text = "5x5 Gray";
+            this.x5GrayToolStripMenuItem4.Click += new System.EventHandler(this.x5GrayToolStripMenuItem4_Click);
+            // 
+            // x5ColorToolStripMenuItem4
+            // 
+            this.x5ColorToolStripMenuItem4.Name = "x5ColorToolStripMenuItem4";
+            this.x5ColorToolStripMenuItem4.Size = new System.Drawing.Size(123, 22);
+            this.x5ColorToolStripMenuItem4.Text = "5x5 Color";
+            this.x5ColorToolStripMenuItem4.Click += new System.EventHandler(this.x5ColorToolStripMenuItem4_Click);
+            // 
+            // textArtToolStripMenuItem
+            // 
+            this.textArtToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.convertToTextToolStripMenuItem});
+            this.textArtToolStripMenuItem.Name = "textArtToolStripMenuItem";
+            this.textArtToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.textArtToolStripMenuItem.Text = "Project";
+            // 
+            // convertToTextToolStripMenuItem
+            // 
+            this.convertToTextToolStripMenuItem.Name = "convertToTextToolStripMenuItem";
+            this.convertToTextToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.convertToTextToolStripMenuItem.Text = "Convert to text";
+            this.convertToTextToolStripMenuItem.Click += new System.EventHandler(this.convertToTextToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(742, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(691, 20);
             this.toolStripMenuItem1.Text = resources.GetString("toolStripMenuItem1.Text");
             // 
             // iO2ToolStripMenuItem
@@ -1161,83 +1262,54 @@
             this.label36.TabIndex = 109;
             this.label36.Text = "Width";
             // 
-            // edgeToolStripMenuItem
+            // asciTextBox
             // 
-            this.edgeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.x3GrayToolStripMenuItem3,
-            this.x3ColorToolStripMenuItem3,
-            this.x5GrayToolStripMenuItem3,
-            this.x5ColorToolStripMenuItem3});
-            this.edgeToolStripMenuItem.Name = "edgeToolStripMenuItem";
-            this.edgeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.edgeToolStripMenuItem.Text = "Edge";
+            this.asciTextBox.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(238)));
+            this.asciTextBox.Location = new System.Drawing.Point(968, 224);
+            this.asciTextBox.Name = "asciTextBox";
+            this.asciTextBox.Size = new System.Drawing.Size(917, 599);
+            this.asciTextBox.TabIndex = 120;
+            this.asciTextBox.Text = "";
+            this.asciTextBox.Visible = false;
+            this.asciTextBox.WordWrap = false;
             // 
-            // x3GrayToolStripMenuItem3
+            // label13
             // 
-            this.x3GrayToolStripMenuItem3.Name = "x3GrayToolStripMenuItem3";
-            this.x3GrayToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.x3GrayToolStripMenuItem3.Text = "3x3 Gray";
-            this.x3GrayToolStripMenuItem3.Click += new System.EventHandler(this.x3GrayToolStripMenuItem3_Click);
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(1513, 33);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 13);
+            this.label13.TabIndex = 121;
+            this.label13.Text = "ASCII Art";
             // 
-            // x3ColorToolStripMenuItem3
+            // label14
             // 
-            this.x3ColorToolStripMenuItem3.Name = "x3ColorToolStripMenuItem3";
-            this.x3ColorToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.x3ColorToolStripMenuItem3.Text = "3x3 Color";
-            this.x3ColorToolStripMenuItem3.Click += new System.EventHandler(this.x3ColorToolStripMenuItem3_Click);
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1516, 58);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(27, 13);
+            this.label14.TabIndex = 123;
+            this.label14.Text = "Size";
             // 
-            // x5GrayToolStripMenuItem3
+            // asciiSize
             // 
-            this.x5GrayToolStripMenuItem3.Name = "x5GrayToolStripMenuItem3";
-            this.x5GrayToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.x5GrayToolStripMenuItem3.Text = "5x5 Gray";
-            this.x5GrayToolStripMenuItem3.Click += new System.EventHandler(this.x5GrayToolStripMenuItem3_Click);
+            this.asciiSize.Location = new System.Drawing.Point(1557, 55);
+            this.asciiSize.Name = "asciiSize";
+            this.asciiSize.Size = new System.Drawing.Size(100, 20);
+            this.asciiSize.TabIndex = 122;
+            this.asciiSize.Text = "256";
             // 
-            // x5ColorToolStripMenuItem3
+            // asciiButton
             // 
-            this.x5ColorToolStripMenuItem3.Name = "x5ColorToolStripMenuItem3";
-            this.x5ColorToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.x5ColorToolStripMenuItem3.Text = "5x5 Color";
-            this.x5ColorToolStripMenuItem3.Click += new System.EventHandler(this.x5ColorToolStripMenuItem3_Click);
-            // 
-            // embossToolStripMenuItem
-            // 
-            this.embossToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.x3GrayToolStripMenuItem4,
-            this.x3ColorToolStripMenuItem4,
-            this.x5GrayToolStripMenuItem4,
-            this.x5ColorToolStripMenuItem4});
-            this.embossToolStripMenuItem.Name = "embossToolStripMenuItem";
-            this.embossToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.embossToolStripMenuItem.Text = "Emboss";
-            // 
-            // x3GrayToolStripMenuItem4
-            // 
-            this.x3GrayToolStripMenuItem4.Name = "x3GrayToolStripMenuItem4";
-            this.x3GrayToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.x3GrayToolStripMenuItem4.Text = "3x3 Gray";
-            this.x3GrayToolStripMenuItem4.Click += new System.EventHandler(this.x3GrayToolStripMenuItem4_Click);
-            // 
-            // x3ColorToolStripMenuItem4
-            // 
-            this.x3ColorToolStripMenuItem4.Name = "x3ColorToolStripMenuItem4";
-            this.x3ColorToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.x3ColorToolStripMenuItem4.Text = "3x3 Color";
-            this.x3ColorToolStripMenuItem4.Click += new System.EventHandler(this.x3ColorToolStripMenuItem4_Click);
-            // 
-            // x5GrayToolStripMenuItem4
-            // 
-            this.x5GrayToolStripMenuItem4.Name = "x5GrayToolStripMenuItem4";
-            this.x5GrayToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.x5GrayToolStripMenuItem4.Text = "5x5 Gray";
-            this.x5GrayToolStripMenuItem4.Click += new System.EventHandler(this.x5GrayToolStripMenuItem4_Click);
-            // 
-            // x5ColorToolStripMenuItem4
-            // 
-            this.x5ColorToolStripMenuItem4.Name = "x5ColorToolStripMenuItem4";
-            this.x5ColorToolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.x5ColorToolStripMenuItem4.Text = "5x5 Color";
-            this.x5ColorToolStripMenuItem4.Click += new System.EventHandler(this.x5ColorToolStripMenuItem4_Click);
+            this.asciiButton.Location = new System.Drawing.Point(1516, 85);
+            this.asciiButton.Name = "asciiButton";
+            this.asciiButton.Size = new System.Drawing.Size(141, 37);
+            this.asciiButton.TabIndex = 124;
+            this.asciiButton.Text = "Convert to ASCII";
+            this.asciiButton.UseVisualStyleBackColor = true;
+            this.asciiButton.Click += new System.EventHandler(this.asciiButton_Click);
             // 
             // ImageProcessApp
             // 
@@ -1245,6 +1317,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.asciiButton);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.asciiSize);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.asciTextBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.label33);
@@ -1470,6 +1547,13 @@
         private System.Windows.Forms.ToolStripMenuItem x3ColorToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem x5GrayToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem x5ColorToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem textArtToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox asciTextBox;
+        private System.Windows.Forms.ToolStripMenuItem convertToTextToolStripMenuItem;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox asciiSize;
+        private System.Windows.Forms.Button asciiButton;
     }
 }
 
